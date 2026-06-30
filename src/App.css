@@ -1,0 +1,7 @@
+/* React-only helpers for the converted Agroxa dashboard */
+[data-simplebar] { overflow: auto; }
+.dashboard-svg-chart { width: 100%; min-height: 280px; display: block; }
+.donut-wrap { display: flex; align-items: center; justify-content: center; min-height: 290px; }
+.mini-stat { overflow: hidden; }
+body.right-bar-enabled .right-bar { right: 0; }
+body.right-bar-enabled .rightbar-overlay { display: block; }
