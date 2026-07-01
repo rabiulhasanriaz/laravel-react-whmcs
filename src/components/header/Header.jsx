@@ -102,7 +102,19 @@ export default function Header() {
               <img className="rounded-circle header-profile-user" src={asset("images/users/avatar-4.jpg")} alt="Header Avatar" />
             </button>
             <div className={`dropdown-menu dropdown-menu-end ${userOpen ? "show" : ""}`}>
-              {[["account-circle", "Profile"], ["wallet", "My Wallet"], ["wrench", "Settings"], ["lock-open-outline", "Lock screen"]].map(([icon, text]) => <a className="dropdown-item" href="#" key={text}><i className={`mdi mdi-${icon} font-size-16 align-middle me-2 text-muted`} /><span>{text}</span></a>)}
+              {
+              [
+                ["account-circle", "Edit Account Details"], 
+                ["wallet", "Payment Methods"], 
+                ["wrench", "Contact/Sub-Accounts"],
+                ["wrench", "Change Password"], 
+                ["wrench", "Settings"],
+                ["inbox", "Email History"],
+              ].map(([icon, text]) => <a className="dropdown-item" href="#" key={text}>
+                <i className={`mdi mdi-${icon} font-size-16 align-middle me-2 text-muted`} />
+                <span>{text}</span>
+              </a>)
+              }
               <div className="dropdown-divider" />
               <a
                 href="#"

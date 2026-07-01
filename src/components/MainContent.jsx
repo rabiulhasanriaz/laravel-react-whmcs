@@ -27,14 +27,100 @@ function Inbox() {
   return <div className="card"><div className="card-body"><h4 className="card-title mb-3">Inbox</h4><div style={{ maxHeight: 334, overflowY: "auto" }}><div className="inbox-wid">{users.map(([img,name,time]) => <a href="#" className="text-dark" key={name}><div className="inbox-item"><div className="inbox-item-img float-start me-3"><img src={asset(`images/users/${img}`)} className="avatar-md rounded-circle" alt="" /></div><h6 className="inbox-item-author mb-1 text-dark">{name}</h6><p className="inbox-item-text text-muted mb-0">Hey! there I'm available...</p><p className="inbox-item-date text-muted">{time}</p></div></a>)}</div></div></div></div>;
 }
 
-function RecentActivity() {
-  return <div className="card"><div className="card-body"><h4 className="card-title mb-5 text-dark">Recent Activity Feed</h4><ul className="nav nav-pills nav-justified recent-activity-tab mb-4">{["21 Sep", "22 Sep", "23 Sep", "24 Sep"].map((d,i)=><li className="nav-item" key={d}><a className={`nav-link ${i===0?"active":""}`} href="#">{d}</a></li>)}</ul><div className="p-3 text-muted"><p>21 Sep, 2018</p><h5 className="text-dark font-size-16">Responded to need “Volunteer Activities”</h5><p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.</p><a href="#" className="text-primary">Read More...</a></div></div></div>;
-}
-
 function Products() {
   const rows = [["Computers", "The languages only differ", "70%"], ["Laptops", "Maecenas tempus tellus", "84%"], ["Ipad", "Donec pede justo", "62%"], ["Mobile", "Aenean leo ligula", "89%"]];
-  return <div className="card"><div className="card-body"><h4 className="card-title mb-4">Top product sales</h4><div className="table-responsive"><table className="table table-hover align-middle mb-0"><tbody>{rows.map(([name, desc, val])=><tr key={name}><td><h5 className="font-size-16">{name}</h5><p className="text-muted mb-0">{desc}</p></td><td><div className="progress" style={{ width: 54, height: 8 }}><div className="progress-bar" style={{ width: val }} /></div></td><td><h5 className="font-size-16">{val}</h5><p className="text-muted mb-0">Sales</p></td></tr>)}</tbody></table></div></div></div>;
+  return <div className="card">
+          <div className="card-body">
+            <h4 className="card-title mb-4">Your Active Products</h4>
+            <div className="table-responsive">
+              <table className="table table-hover align-middle mb-0">
+                <tbody>{rows.map(([name, desc, val])=><tr key={name}>
+                  <td>
+                    <h5 className="font-size-16">{name}</h5>
+                    <p className="text-muted mb-0">{desc}</p>
+                    </td>
+                    <td>
+                      <div className="progress" style={{ width: 54, height: 8 }}>
+                        <div className="progress-bar" style={{ width: val }} />
+                        </div>
+                    </td>
+                  <td>
+                    <h5 className="font-size-16">{val}</h5>
+                    <p className="text-muted mb-0">Sales</p>
+                  </td></tr>)}
+                </tbody>
+              </table>
+            </div>
+            </div>
+            </div>;
 }
+
+function RecentSupportTickets(){
+      const rows = [["Computers", "The languages only differ", "70%"], ["Laptops", "Maecenas tempus tellus", "84%"], ["Ipad", "Donec pede justo", "62%"], ["Mobile", "Aenean leo ligula", "89%"]];
+  return <div className="card">
+          <div className="card-body">
+            <h4 className="card-title mb-4">Your Active Products</h4>
+            <div className="table-responsive">
+              <table className="table table-hover align-middle mb-0">
+                <tbody>{rows.map(([name, desc, val])=><tr key={name}>
+                  <td>
+                    <h5 className="font-size-16">{name}</h5>
+                    <p className="text-muted mb-0">{desc}</p>
+                    </td>
+                    <td>
+                      <div className="progress" style={{ width: 54, height: 8 }}>
+                        <div className="progress-bar" style={{ width: val }} />
+                        </div>
+                    </td>
+                  <td>
+                    <h5 className="font-size-16">{val}</h5>
+                    <p className="text-muted mb-0">Sales</p>
+                  </td></tr>)}
+                </tbody>
+              </table>
+            </div>
+            </div>
+            </div>;
+}
+
+function RegisterDomain(){
+    return <div className="card">
+          <div className="card-body">
+            <h4 className="card-title mb-5 text-dark">Register Domain</h4>
+            <ul className="nav nav-pills nav-justified recent-activity-tab mb-4">{["21 Sep", "22 Sep", "23 Sep", "24 Sep"].map((d,i)=><li className="nav-item" key={d}>
+              <a className={`nav-link ${i===0?"active":""}`} href="#">{d}</a>
+              </li>)}
+            </ul>
+            <div className="p-3 text-muted"><p>21 Sep, 2018</p>
+            <h5 className="text-dark font-size-16">Responded to need “Volunteer Activities”</h5>
+            <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.</p>
+            <a href="#" className="text-primary">Read More...</a>
+            </div>
+            </div>
+            </div>;
+}
+
+function RecentActivity() {
+  return <div className="card">
+          <div className="card-body">
+            <h4 className="card-title mb-5 text-dark">Recent News</h4>
+            <ul className="nav nav-pills nav-justified recent-activity-tab mb-4">{["21 Sep", "22 Sep", "23 Sep", "24 Sep"].map((d,i)=><li className="nav-item" key={d}>
+              <a className={`nav-link ${i===0?"active":""}`} href="#">{d}</a>
+              </li>)}
+            </ul>
+            <div className="p-3 text-muted"><p>21 Sep, 2018</p>
+            <h5 className="text-dark font-size-16">Responded to need “Volunteer Activities”</h5>
+            <p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.</p>
+            <a href="#" className="text-primary">Read More...</a>
+            </div>
+            </div>
+            </div>;
+}
+
+
+
+
+
 
 function DataTable({ title }) {
   const people = ["Jeanette James", "Christopher Taylor", "Edward Vazquez", "Michael Flannery", "Jamie Fishbourne"];
@@ -48,17 +134,50 @@ export default function MainContent() {
         <div className="row"><div className="col-12"><div className="page-title-box d-flex align-items-center justify-content-between"><div className="page-title"><h4 className="mb-0 font-size-18">Dashboard</h4><ol className="breadcrumb"><li className="breadcrumb-item active">Welcome to Agroxa Dashboard</li></ol></div><div className="state-information d-none d-sm-block"><div className="state-graph"><div className="info">Balance $ 2,317</div></div><div className="state-graph"><div className="info">Item Sold 1230</div></div></div></div></div></div>
         <div className="page-content-wrapper">
           <div className="row">
-            <StatCard title="Orders" value="1,587" badge="+11%" badgeClass="text-info" icon="cube-outline" label="Orders" />
-            <StatCard title="Revenue" value="$46,785" badge="-29%" badgeClass="text-danger" icon="buffer" label="Revenue" />
-            <StatCard title="Average Price" value="15.9" badge="0%" badgeClass="text-primary" icon="tag-text-outline" label="Av. Price" />
-            <StatCard title="Product Sold" value="1890" badge="+89%" badgeClass="text-info" icon="briefcase-check" label="Pr. Sold" />
+            <StatCard title="Services" value="1,587" badge="+11%" badgeClass="text-info" icon="cube-outline" label="Services" />
+            <StatCard title="Domains" value="$46,785" badge="-29%" badgeClass="text-danger" icon="buffer" label="Domains" />
+            <StatCard title="Tickets" value="15.9" badge="0%" badgeClass="text-primary" icon="tag-text-outline" label="Tickets" />
+            <StatCard title="Invoices" value="1890" badge="+89%" badgeClass="text-info" icon="briefcase-check" label="Invoices" />
           </div>
-          <div className="row"><div className="col-xl-9"><div className="card"><div className="card-body"><div className="row"><div className="col-xl-8 border-end"><h4 className="card-title mb-4">Sales Report</h4><AreaChart /></div><div className="col-xl-4"><h4 className="card-title mb-4">Yearly Sales Report</h4><div className="p-3"><ul className="nav nav-pills nav-justified mb-3"><li className="nav-item"><a className="nav-link active" href="#">2015</a></li><li className="nav-item"><a className="nav-link" href="#">2016</a></li><li className="nav-item"><a className="nav-link" href="#">2017</a></li></ul><div className="p-3"><h2>$17562</h2><p className="text-muted">Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus Nullam quis ante.</p><a href="#" className="text-primary">Read more...</a></div></div></div></div></div></div></div><div className="col-xl-3"><div className="card"><div className="card-body"><h4 className="card-title mb-4">Sales Analytics</h4><DonutChart /></div></div></div></div>
-          <div className="row"><div className="col-xl-4"><Inbox /></div><div className="col-xl-4"><RecentActivity /></div><div className="col-xl-4"><Products /></div></div>
-          <div className="row"><div className="col-xl-6"><DataTable title="Latest Transaction" /></div><div className="col-xl-6"><DataTable title="Latest Order" /></div></div>
+          {/* <div className="row"><div className="col-xl-9"><div className="card"><div className="card-body"><div className="row"><div className="col-xl-8 border-end"><h4 className="card-title mb-4">Sales Report</h4><AreaChart /></div><div className="col-xl-4"><h4 className="card-title mb-4">Yearly Sales Report</h4><div className="p-3"><ul className="nav nav-pills nav-justified mb-3"><li className="nav-item"><a className="nav-link active" href="#">2015</a></li><li className="nav-item"><a className="nav-link" href="#">2016</a></li><li className="nav-item"><a className="nav-link" href="#">2017</a></li></ul><div className="p-3"><h2>$17562</h2><p className="text-muted">Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus Nullam quis ante.</p><a href="#" className="text-primary">Read more...</a></div></div></div></div></div></div></div><div className="col-xl-3"><div className="card"><div className="card-body"><h4 className="card-title mb-4">Sales Analytics</h4><DonutChart /></div></div></div></div> */}
+        <div className="row">
+          {/* <div className="col-xl-4">
+            <Inbox />
+          </div> */}
+          <div className="col-xl-6">
+            <Products />
+          </div>
+          <div className="col-xl-6">
+            <RecentSupportTickets />
+          </div>
+          <div className="col-xl-6">
+            <RegisterDomain />
+          </div>
+          <div className="col-xl-6">
+            <RecentActivity />
+          </div>
+        </div>
+
+          {/* <div className="row">
+            <div className="col-xl-6">
+              <DataTable title="Latest Transaction" />
+            </div>
+            <div className="col-xl-6">
+              <DataTable title="Latest Order" />
+            </div>
+          </div> */}
+
         </div>
       </div></div>
-      <footer className="footer"><div className="container-fluid"><div className="row"><div className="col-sm-12 text-center">{new Date().getFullYear()} © Agroxa <span className="d-none d-sm-inline-block">- Crafted with <i className="mdi mdi-heart text-primary" /> by Themesbrand.</span></div></div></div></footer>
+      <footer className="footer">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-sm-12 text-center">{new Date().getFullYear()} © Agroxa 
+              <span className="d-none d-sm-inline-block">- Crafted with <i className="mdi mdi-heart text-primary" /> by Themesbrand.</span>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
