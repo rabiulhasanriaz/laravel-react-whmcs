@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Navigate } from "react-router-dom";
 
 import Header from "./components/header/Header";
 import VerticalNavBar from "./components/navbar/VerticalNavBar";
@@ -6,6 +7,11 @@ import MainContent from "./components/MainContent";
 import RightSidebar from "./components/RightSidebar";
 
 export default function App() {
+  const user = JSON.parse(localStorage.getItem("auth_user"));
+
+  if (!user) {
+    return <Navigate to="/" replace />;
+  }
   useEffect(() => {
     document.body.setAttribute("data-topbar", "colored");
     document.body.classList.remove("vertical-collpsed", "sidebar-enable", "right-bar-enabled");

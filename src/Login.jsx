@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Login(){
+    const navigate = useNavigate();
     const [form, setForm] = useState({
-        username: "",
+        email: "",
         password: "",
     });
 
@@ -47,9 +49,25 @@ export default function Login(){
 
       const data = await response.json();
 
-      if (!response.ok) {
-        throw new Error(data.message || "Login failed");
-      }
+      const user = data.find(
+      (item) =>
+        item.email === form.email &&
+        item.raw_password === form.password
+    );
+    
+    if (!user) {
+      setError("Invalid email or password");
+      return;
+    }
+
+    //   if (!response.ok) {
+    //     throw new Error(data.message || "Login failed");
+    //   }
+
+      localStorage.setItem("auth_user", JSON.stringify(user));
+    //   localStorage.setItem("auth_token", data.token || "logged_in");
+
+      navigate("/dashboard");
 
       setApiResponse(data);
     } catch (err) {
@@ -82,13 +100,13 @@ export default function Login(){
                         <form class="form-horizontal" onSubmit={handleLogin}>
 
                             <div class="mb-3">
-                                <label class="form-label" for="username">Username</label>
-                                <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" value={form.username} onChange={handleChange} />
+                                <label class="form-label" for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" value={form.email} onChange={handleChange} />
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label" for="userpassword">Password</label>
-                                <input type="password" class="form-control" id="userpassword" name="password" placeholder="Enter password" value={form.password} onChange={handleChange} />
+                                <label class="form-label" for="password">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" value={form.password} onChange={handleChange} />
                             </div>
 
                             <div class="mb-3 row">

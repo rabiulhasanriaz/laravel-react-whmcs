@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function asset(path) {
   return `/assets/${path}`;
@@ -9,11 +10,24 @@ export default function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [userOpen, setUserOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleSidebar = () => {
     document.body.classList.toggle("sidebar-enable");
     if (window.innerWidth >= 992) document.body.classList.toggle("vertical-collpsed");
   };
+
+  const handleLogout = () => {
+  // Remove stored login information
+  localStorage.removeItem("auth_user");
+  localStorage.removeItem("auth_token");
+
+  // Or clear everything
+  // localStorage.clear();
+
+  // Redirect to login page
+  navigate("/");
+};
 
   return (
     <header id="page-topbar">
@@ -90,7 +104,17 @@ export default function Header() {
             <div className={`dropdown-menu dropdown-menu-end ${userOpen ? "show" : ""}`}>
               {[["account-circle", "Profile"], ["wallet", "My Wallet"], ["wrench", "Settings"], ["lock-open-outline", "Lock screen"]].map(([icon, text]) => <a className="dropdown-item" href="#" key={text}><i className={`mdi mdi-${icon} font-size-16 align-middle me-2 text-muted`} /><span>{text}</span></a>)}
               <div className="dropdown-divider" />
-              <a className="dropdown-item text-primary" href="#"><i className="mdi mdi-power font-size-16 align-middle me-2 text-primary" /><span>Logout</span></a>
+              <a
+                href="#"
+                className="dropdown-item text-primary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLogout();
+                }}
+              >
+                <i className="mdi mdi-power font-size-16 align-middle me-2 text-primary" />
+                <span>Logout</span>
+              </a>
             </div>
           </div>
 
